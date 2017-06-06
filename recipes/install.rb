@@ -2,6 +2,8 @@ if node["kernel"]["machine"] != 'x86_64'
    Chef::Log.fatal!("Unrecognized node.kernel.machine=#{node["kernel"]["machine"]}; Only x86_64", 1)
 end
 
+setup_aws()
+
 group node["conda"]["group"]
 user node["conda"]["user"] do
   gid node["conda"]["group"]
